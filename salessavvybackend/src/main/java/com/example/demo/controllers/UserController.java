@@ -10,6 +10,7 @@ import com.example.demo.services.UserService;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5174", allowCredentials = "true")
 @RequestMapping("/api/users")
 public class UserController {
     private final UserService userService;
@@ -30,4 +31,11 @@ public class UserController {
             return ResponseEntity.badRequest().body(Map.of("error", e.getMessage()));
         }
     }
+     
+    @GetMapping("/profile/{username}")
+    public ResponseEntity<User> getProfile(@PathVariable String username) {
+        User user = userService.getUserProfile(username);
+        return ResponseEntity.ok(user);
+    }
+
 }

@@ -110,6 +110,8 @@ import java.time.LocalDateTime;
 			this.updatedAt = updatedAt;
 		}
 
+	
+
 	    // Getters and Setters
 	}
 
